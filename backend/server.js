@@ -68,4 +68,9 @@ socket.on("typing", (room) => socket.in(room).emit("typing"));
     });
 });
 
+ socket.off("setup", () => {
+    console.log("USER DISCONNECTED");
+    socket.leave(userData._id);
+  });
+
 });

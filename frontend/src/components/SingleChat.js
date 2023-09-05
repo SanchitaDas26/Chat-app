@@ -13,7 +13,7 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
 
-// const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
+const ENDPOINT = "http://localhost:5000"; // "https://talk-a-tive.herokuapp.com"; -> After deployment
 var socket, selectedChatCompare;
 
 const SingleChat = ({fetchAgain, setFetchAgain}) => {
@@ -30,7 +30,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
     autoplay: true,
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+    preserveAspectRatio: "xMidYMid slice",
     },
   };
 
@@ -38,7 +38,7 @@ const { selectedChat, setSelectedChat, user } =ChatState();
 
  const fetchMessages = async () => {
     if (!selectedChat) return;
-console.log("Inside fetch message");
+// console.log("Inside fetch message");
     try {
       const config = {
         headers: {
@@ -59,8 +59,7 @@ console.log("Inside fetch message");
 
        socket.emit("join chat", selectedChat._id);
     } catch (error) {
-      console.log(error);
-      toast({
+        toast({
         title: "Error Occured!",
         description: "Failed to Load the Messages",
         status: "error",
@@ -87,7 +86,6 @@ console.log("Inside fetch message");
   }, [selectedChat]);
 
  
-
     useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
@@ -147,7 +145,7 @@ const sendMessage = async (event) => {
           config
         );
         socket.emit("new message", data);
-        console.log(data);
+         console.log(data);
         setMessages([...messages, data]);
       } catch (error) {
         toast({
@@ -173,7 +171,8 @@ const sendMessage = async (event) => {
             px={2}
             w="100%"
             fontFamily="Work sans"
-            d="flex"
+            // d="flex"
+            style={{display:"flex"}}
             justifyContent={{ base: "space-between" }}
             alignItems="center"
           >
@@ -208,7 +207,7 @@ const sendMessage = async (event) => {
             p={3}
             bg="#E8E8E8"
             w="100%"
-            h="100%"
+            h="80%"
             borderRadius="lg"
             overflowY="hidden"
           >

@@ -78,7 +78,7 @@ const fetchChats = async () => {
         p={3}
         bg="#F8F8F8"
         w="100%"
-        h="100%"
+        h="80%"
         borderRadius="lg"
         overflowY="hidden"
       >
@@ -100,14 +100,14 @@ const fetchChats = async () => {
                     ? getSender(loggedUser, chat.users)
                     : chat.chatName}
                 </Text>
-                {/* {chat.latestMessage && (
+                {chat.latestMessage && (
                   <Text fontSize="xs">
                     <b>{chat.latestMessage.sender.name} : </b>
                     {chat.latestMessage.content.length > 50
                       ? chat.latestMessage.content.substring(0, 51) + "..."
                       : chat.latestMessage.content}
                   </Text>
-                )} */}
+                )}
               </Box>
             ))}
           </Stack>

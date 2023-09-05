@@ -9,8 +9,8 @@ import { useState } from "react";
 const ChatPage = () => {
   const [fetchAgain, setFetchAgain] = useState(false);
     const { user } = ChatState();
-    console.log("Inside chat page");
-    console.log(user);
+    //console.log("Inside chat page");
+    //console.log(user);
    
   return (
     <div style={{ width: "100%" }}>

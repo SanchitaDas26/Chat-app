@@ -23,7 +23,5 @@ root.render(
     </ChakraProvider>
     </ChatProvider>
   </Router>
-    
-    
 );
 
